@@ -1,0 +1,27 @@
+.book-date {
+  display: flex;
+  flex-direction: column;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 1px solid #000000;
+  background-color: #505050;
+  color: white;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.book-date__month {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.book-date__year {
+  font-size: 0.75rem;
+}
+
+.book-date__day {
+  font-size: 1.5rem;
+  font-weight: 500;
+}

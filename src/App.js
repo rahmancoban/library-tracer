@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import NewBook from "./components/newBooks/NewBook";
+import ListContainer from "./components/books/ListContainer";
+
+
+const initial_books = [
+  {
+    id: "e1",
+    date: new Date(2022, 2, 14),
+    bookID: "001",
+    title: "Harry Potter",
+    author: "J.K Rowling",
+    price: "5",
+  },
+  {
+    id: "e2",
+    date: new Date(2021, 3, 21),
+    bookID: "002",
+    title: "The Bronte Sisters",
+    author: "Charlotte Bronte",
+    price: "7",
+  },
+  {
+    id: "e3",
+    date: new Date(2020, 4, 5),
+    bookID: "003",
+    title: "Fahrenheit 451",
+    author: "Ray Bradbury",
+    price: "4",
+  },
+];
+
+
 
 function App() {
+
+  const [books, setBooks] = useState(initial_books)
+
+
+  const addBookHandler = (book) => {
+    setBooks(prevBooks => {
+      return [book, ...prevBooks];
+    })
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NewBook onAddBook={addBookHandler} />
+      <ListContainer items={books} />
     </div>
   );
 }
